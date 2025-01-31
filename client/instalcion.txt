@@ -1,0 +1,22 @@
+npm install axios react-router-dom react-toastify
+
+##extensiones para react
+ES7+ React/Redux/React-Native snippets
+
+3. poner font de letra en index.css
+https://fonts.google.com/selection/embed
+
+3.Ver vite + Estilo css ver documenrtacion
+https://tailwindcss.com/docs/guides/vite
+    Instalar en la terminal:
+   >npm install -D tailwindcss postcss autoprefixer
+    >npx tailwindcss init -p
+4. crear /pages-->home,login.resetpassword
+5.src/main.jsx  : apertura del enrutador del navegador
+import { BrowserRouter } from 'react-router-dom'
+
+createRoot(document.getElementById('root')).render(
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>,
+)
