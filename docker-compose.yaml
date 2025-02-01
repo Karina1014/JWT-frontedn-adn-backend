@@ -1,0 +1,61 @@
+version: '3.8'
+
+services:
+  microservice-login:
+    build:
+      context: ./user_authentication/Microservice_login
+      dockerfile: Dockerfile
+    ports:
+      - "3010:3000" # Exponemos el puerto 3000 del contenedor al puerto 3010 en el host
+    environment:
+      - NODE_ENV=production
+    networks:
+      - user-auth-net
+
+  microservice-logout:
+    build:
+      context: ./user_authentication/Microservice_logout
+      dockerfile: Dockerfile
+    ports:
+      - "3011:3000"
+    environment:
+      - NODE_ENV=production
+    networks:
+      - user-auth-net
+
+  microservice-register-user:
+    build:
+      context: ./user_authentication/Microservice_register_user
+      dockerfile: Dockerfile
+    ports:
+      - "3012:3000"
+    environment:
+      - NODE_ENV=production
+    networks:
+      - user-auth-net
+
+  microservice-sendVerifiOTP:
+    build:
+      context: ./user_authentication/Microservice_sendVerifiOTP
+      dockerfile: Dockerfile
+    ports:
+      - "3013:3000"
+    environment:
+      - NODE_ENV=production
+    networks:
+      - user-auth-net
+
+  microservice-verifiEmail:
+    build:
+      context: ./user_authentication/Microservice_verifiEmail
+      dockerfile: Dockerfile
+    ports:
+      - "3014:3000"
+    environment:
+      - NODE_ENV=production
+    networks:
+      - user-auth-net
+
+networks:
+  user-auth-net:
+    driver: bridge
